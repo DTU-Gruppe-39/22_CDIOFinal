@@ -2,9 +2,33 @@ package DTO;
 
 public class Ingrediens {
 	
-	int raavareId;
-	double nomNetto;
+  private int raavareId;
+	private double nomNetto;
 	
 	/** Convert to %  */
-	double tolerance;
+	private double tolerance;
+
+	public int getRaavareId() {
+		return raavareId;
+	}
+
+	public void setRaavareId(int raavareId) {
+		this.raavareId = raavareId;
+	}
+
+	public double getNomNetto() {
+		return nomNetto;
+	}
+
+	public void setNomNetto(double nomNetto) {
+		this.nomNetto = nomNetto;
+	}
+
+	public double getTolerance() {
+		return tolerance;
+	}
+
+	public void setTolerance(double tolerance) {
+		this.tolerance = tolerance;
+	}
 }

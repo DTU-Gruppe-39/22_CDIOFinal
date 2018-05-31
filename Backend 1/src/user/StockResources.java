@@ -1,6 +1,6 @@
 package user;
 
-import java.util.ArrayList;
+import java.util.ArrayList; 
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -12,6 +12,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import DTO.Raavare;
+import DTO.RaavareBatch;
 
 @Path("/stock")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -19,36 +20,35 @@ import DTO.Raavare;
 public class StockResources {
 	private static ArrayList <Raavare> ravareList = new ArrayList<>();
 
+
+
 	//*** Ravare ***//
-	//PUT
-	@PUT
-	@Path("{ravareNr}")
+	@POST
+	//	@Path("{ravareNr}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public String submit(Raavare rav) {
 		ravareList.add(rav);
-		
+
 		System.out.println("Created user: " + rav.toString());
 		System.out.println("Current list " + ravareList.toString());
-		
+
 		String result = "created ravare";
 		return result;
 	}
-	
-	//GET
+
 	@GET
-	@Path("")
+	//	@Path("")
 	@Produces(MediaType.APPLICATION_JSON)
 	public ArrayList<Raavare> getRavare()
 	{
 		return ravareList;
 	}
-	
-	//POST
-	@POST
-	@Path("{ravareNr}")
+
+	@PUT
+	//	@Path("{ravareNr}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public String update(Raavare rav) {
-		
+
 		for (Raavare ravare : ravareList) {
 			if(ravare.getRavareId() == rav.getRavareId())
 			{
@@ -57,43 +57,15 @@ public class StockResources {
 				ravare.setSupplier(rav.getSupplier());
 			}
 		}			
-		return "Updated ravare";
+		return "Updated råvare";
 	}
-	
-	//DELETE
+
 	@DELETE
-	@Path("{ravreNr}")
+	//	@Path("{ravreNr}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public String delete(int ravareNr)
 	{
 		ravareList.removeIf(e-> e.getRavareId() == ravareNr);
 		return "deleted ravare";
 	}
-	
-	//*** Recept ***//
-	//PUT 
-	
-	//GET
-	
-	//POST
-	
-	//DELETE
-	
-	//*** ravareBatch ***//
-	//PUT
-	
-	//GET
-	
-	//POST
-	
-	//DELETE
-	
-	//*** productBatch ***//
-	//PUT
-	
-	//GET
-	
-	//POST
-	
-	//DELETE
 }
