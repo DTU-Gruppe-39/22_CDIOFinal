@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Recept {
 	/** recept id i området 1-99999999 */
+
 	private int receptId;
 	
 	/** Receptnavn min. 2 max. 20 karakterer */

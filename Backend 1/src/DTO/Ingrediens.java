@@ -2,7 +2,7 @@ package DTO;
 
 public class Ingrediens {
 	
-	private int raavareId;
+  private int raavareId;
 	private double nomNetto;
 	
 	/** Convert to %  */
